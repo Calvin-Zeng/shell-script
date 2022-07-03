@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SOURCE_DIR="$HOME/.gnupg"
+TARGET_DIR=".gnupg"
+TMP_FILE=`mktemp` 
+
+cat << EOF > $TMP_FILE
++ *
+EOF

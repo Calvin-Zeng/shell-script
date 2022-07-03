@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SOURCE_DIR="$HOME/.config/google-chrome"
+TARGET_DIR="google-chrome/.config"
+TMP_FILE=`mktemp` 
+
+cat << EOF > $TMP_FILE
++ *
+EOF

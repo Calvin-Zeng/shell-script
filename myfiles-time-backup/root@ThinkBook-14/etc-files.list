@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SOURCE_DIR="/etc"
+TARGET_DIR="etc-files"
+TMP_FILE=`mktemp`
+
+cat << EOF > $TMP_FILE
++ exports
++ hostname
++ mime.types
++ fstab
++ hosts
++ crontab
++ rc.local
+- *
+EOF

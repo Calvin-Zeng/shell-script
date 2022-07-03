@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SOURCE_DIR="/home/calvin/Work/Sublime_Text_Build_3211_x64"
+TARGET_DIR="sublime-text_v3211_x64/appimage"
+TMP_FILE=`mktemp` 
+
+cat << EOF > $TMP_FILE
++ *
+EOF

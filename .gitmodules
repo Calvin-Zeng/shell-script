@@ -1,0 +1,3 @@
+[submodule "myfiles-time-backup/rsync-time-backup"]
+	path = myfiles-time-backup/rsync-time-backup
+	url = https://github.com/laurent22/rsync-time-backup.git

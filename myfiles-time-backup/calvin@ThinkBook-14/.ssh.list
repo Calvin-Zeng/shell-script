@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SOURCE_DIR="$HOME/.ssh"
+TARGET_DIR=".ssh"
+TMP_FILE=`mktemp` 
+
+cat << EOF > $TMP_FILE
++ *
+EOF
