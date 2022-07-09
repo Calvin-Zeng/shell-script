@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SOURCE_DIR="/etc"
+TARGET_DIR="mysql"
+TMP_FILE=`mktemp`
+
+cat << EOF > $TMP_FILE
++ mysql/mysql.conf.d/mysqld.cnf 
++ mysql/debian.cnf
++ apparmor.d/usr.sbin.mysqld
+- *
+EOF

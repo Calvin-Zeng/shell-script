@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SOURCE_DIR="/"
+TARGET_DIR="system-configs"
+TMP_FILE=`mktemp`
+
+cat << EOF > $TMP_FILE
++ etc/sudoers
++ etc/hostname
++ boot/firmware/cmdline.txt
++ boot/firmware/usercfg.txt
+- *
+EOF

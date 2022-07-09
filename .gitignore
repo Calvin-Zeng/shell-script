@@ -1,3 +1,5 @@
 *.sublime-project
 *.sublime-workspace
 *.swp
+apache_site_*.list
+mysql_data.list

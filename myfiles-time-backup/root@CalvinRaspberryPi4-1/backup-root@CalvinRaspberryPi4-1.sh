@@ -1,6 +1,6 @@
 #!/bin/bash
 # Add syntax to crontab file.
-# 0 * * * *	calvin 	bash /home/calvin/Work/shell-script/myfiles-time-backup/calvin@ThinkBook-14/backup-calvin@ThinkBook-14.sh
+# 10 * * * *       root   if grep -qs /home/calvin/HD2 /proc/mounts; then bash /home/calvin/Work/shell-script/myfiles-time-backup/root@CalvinRaspberryPi4-1/backup-root@CalvinRaspberryPi4-1.sh; fi
 
 # keep track of how long script takes to run
 bench_start=$SECONDS
@@ -13,10 +13,11 @@ cd $DIR_PATH
 
 DATE=$(date +"%Y-%m-%d")
 RSYNC_TIME_BIN="../rsync-time-backup/rsync_tmbackup.sh"
-BACKUPTORNAME="time_backup_calvin@$HOSTNAME"
-REMOTEDIR="/home/calvin/$BACKUPTORNAME" # Backup to where
+BACKUPTORNAME="time_backup_root@$HOSTNAME"
+REMOTEDIR="/home/calvin/HD2/$BACKUPTORNAME" # Backup to where
 
 [ -d $REMOTEDIR ] || mkdir -p $REMOTEDIR
+[ -f "../dpkg_history.sh" ] && . ../dpkg_history.sh
 
 shopt -s nullglob
 FILES="$DIR_PATH/*.list"

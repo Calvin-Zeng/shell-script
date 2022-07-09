@@ -17,12 +17,16 @@ BACKUPTORNAME="time_backup_root@$HOSTNAME"
 REMOTEDIR="/home/calvin/$BACKUPTORNAME" # Backup to where
 
 [ -d $REMOTEDIR ] || mkdir -p $REMOTEDIR
+[ -f "../dpkg_history.sh" ] && . ../dpkg_history.sh
 
 shopt -s nullglob
 FILES="$DIR_PATH/*.list"
 for file in $FILES; do
     . $file
-    [ -d $SOURCE_DIR ] || continue; 
+    if [ ! -d $SOURCE_DIR ]; then
+        rm $TMP_FILE
+        continue; 
+    fi
     mkdir -p -- $REMOTEDIR/$TARGET_DIR
     touch "$REMOTEDIR/$TARGET_DIR/backup.marker"
     $RSYNC_TIME_BIN $SOURCE_DIR $REMOTEDIR/$TARGET_DIR $TMP_FILE

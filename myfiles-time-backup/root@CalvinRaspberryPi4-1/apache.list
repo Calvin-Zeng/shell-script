@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SOURCE_DIR="/etc"
+TARGET_DIR="apache"
+TMP_FILE=`mktemp`
+
+cat << EOF > $TMP_FILE
++ apache2/sites-available/000-default.conf
++ apache2/apache2.conf
++ apache2/mods-enabled/dir.conf
++ php/7.4/apache2/php.ini
+- *
+EOF
